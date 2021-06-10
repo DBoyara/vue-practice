@@ -5,9 +5,9 @@
                 <div class="col-md-6 offset-md-3 col-xs-12">
                     <h1 class="text-xs-center">Sign up</h1>
                     <p class="text-xs-center">
-<!--                        <router-link :to="{name: 'login'}">-->
-<!--                            Need an account?-->
-<!--                        </router-link>-->
+                        <!--                        <router-link :to="{name: 'login'}">-->
+                        <!--                            Need an account?-->
+                        <!--                        </router-link>-->
                     </p>
                     <mcv-validation-errors
                         v-if="validationErrors"
@@ -38,12 +38,7 @@
                                 v-model="password"
                             />
                         </fieldset>
-                        <button
-                            class="btn btn-lg btn-primary pull-xs-right"
-                            :disabled="isSubmitting"
-                        >
-                            Sign Up
-                        </button>
+                        <button class="btn btn-lg btn-primary pull-xs-right" :disabled="isSubmitting">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -52,27 +47,27 @@
 </template>
 
 <script>
-import McvValidationErrors from '../components/ValidationErrors'
+import McvValidationErrors from '../components/ValidationErrors';
 
 export default {
     name: 'McvRegister',
     components: {
-        McvValidationErrors
+        McvValidationErrors,
     },
     data() {
         return {
             email: '',
             password: '',
-            username: ''
-        }
+            username: '',
+        };
     },
     computed: {
         isSubmitting() {
-            return this.$store.state.auth.isSubmitting
+            return this.$store.state.auth.isSubmitting;
         },
         validationErrors() {
-            return this.$store.state.auth.validationErrors
-        }
+            return this.$store.state.auth.validationErrors;
+        },
     },
     methods: {
         onSubmit() {
@@ -80,12 +75,12 @@ export default {
                 .dispatch('register', {
                     email: this.email,
                     username: this.username,
-                    password: this.password
+                    password: this.password,
                 })
                 .then(() => {
-                    this.$router.push({name: 'home'})
-                })
-        }
-    }
-}
+                    this.$router.push({ name: 'home' });
+                });
+        },
+    },
+};
 </script>
