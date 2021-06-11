@@ -38,7 +38,12 @@
                                 v-model="password"
                             />
                         </fieldset>
-                        <button class="btn btn-lg btn-primary pull-xs-right" :disabled="isSubmitting">Sign Up</button>
+                        <button
+                            class="btn btn-lg btn-primary pull-xs-right"
+                            :disabled="isSubmitting"
+                        >
+                            Sign Up
+                        </button>
                     </form>
                 </div>
             </div>
@@ -47,40 +52,41 @@
 </template>
 
 <script>
-import McvValidationErrors from '../components/ValidationErrors';
-
+import McvValidationErrors from '../components/ValidationErrors.vue'
+import {actionTypes} from '../store/modules/auth'
 export default {
     name: 'McvRegister',
     components: {
-        McvValidationErrors,
+        McvValidationErrors
     },
     data() {
         return {
             email: '',
             password: '',
-            username: '',
-        };
+            username: ''
+        }
     },
     computed: {
         isSubmitting() {
-            return this.$store.state.auth.isSubmitting;
+            return this.$store.state.auth.isSubmitting
         },
         validationErrors() {
-            return this.$store.state.auth.validationErrors;
-        },
+            return this.$store.state.auth.validationErrors
+        }
     },
     methods: {
         onSubmit() {
+            console.log('onSubmit')
             this.$store
-                .dispatch('register', {
+                .dispatch(actionTypes.register, {
                     email: this.email,
                     username: this.username,
-                    password: this.password,
+                    password: this.password
                 })
                 .then(() => {
-                    this.$router.push({ name: 'home' });
-                });
-        },
-    },
-};
+                    this.$router.push({name: 'home'})
+                })
+        }
+    }
+}
 </script>
