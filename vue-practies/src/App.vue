@@ -1,4 +1,17 @@
 <template>
-    <div>Hello Vue 3!</div>
-    <router-view />
+    <div id="app">
+        <mcv-topbar />
+        <router-view></router-view>
+    </div>
 </template>
+
+<script>
+import McvTopbar from './components/Topbar.vue';
+
+export default {
+    name: 'App',
+    components: {
+        McvTopbar,
+    },
+};
+</script>
