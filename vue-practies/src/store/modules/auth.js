@@ -4,6 +4,7 @@ import { setItem } from '../../helpers/persistanceStorage';
 const state = {
     isSubmitting: false,
     isLoggedIn: null,
+    isLoading: false,
     currentUser: null,
     validationErrors: null,
 };
@@ -16,11 +17,16 @@ export const mutationTypes = {
     loginStart: '[auth] Login start',
     loginSuccess: '[auth] Login success',
     loginFailure: '[auth] Login failure',
+
+    getCurrentUserStart: '[auth] Get current user start',
+    getCurrentUserSuccess: '[auth] Get current user success',
+    getCurrentUserFailure: '[auth] Get current user failure',
 };
 
 export const actionTypes = {
     register: '[auth] Register',
     login: '[auth] Login',
+    getCurrentUser: '[auth] Get current user',
 };
 
 export const getterTypes = {
@@ -68,6 +74,19 @@ const mutations = {
         state.isSubmitting = false;
         state.validationErrors = payload;
     },
+    [mutationTypes.getCurrentUserStart](state) {
+        state.isLoading = true;
+    },
+    [mutationTypes.getCurrentUserSuccess](state, payload) {
+        state.isLoading = false;
+        state.isLoggedIn = true;
+        state.currentUser = payload;
+    },
+    [mutationTypes.getCurrentUserFailure](state) {
+        state.isLoading = false;
+        state.isLoggedIn = false;
+        state.currentUser = null;
+    },
 };
 
 const actions = {
@@ -98,6 +117,20 @@ const actions = {
                 })
                 .catch((result) => {
                     context.commit(mutationTypes.loginFailure, result.response.data.errors);
+                });
+        });
+    },
+    [actionTypes.getCurrentUser](context) {
+        return new Promise((resolve) => {
+            context.commit(mutationTypes.getCurrentUserStart);
+            authApi
+                .getCurrentUser()
+                .then((response) => {
+                    context.commit(mutationTypes.getCurrentUserSuccess, response.data.user);
+                    resolve(response.data.user);
+                })
+                .catch(() => {
+                    context.commit(mutationTypes.getCurrentUserFailure);
                 });
         });
     },

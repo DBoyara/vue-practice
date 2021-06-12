@@ -7,19 +7,19 @@
                     <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link>
                 </li>
                 <template v-if="isLoggedIn">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'createArticle' }">
-                            <i class="ion-compose" />
-                            &nbsp; New Article
-                        </router-link>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <router-link class="nav-link" :to="{ name: 'createArticle' }">-->
+<!--                            <i class="ion-compose" />-->
+<!--                            &nbsp; New Article-->
+<!--                        </router-link>-->
+<!--                    </li>-->
 
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'settings' }">
-                            <i class="ion-gear-a" />
-                            &nbsp; Settings
-                        </router-link>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <router-link class="nav-link" :to="{ name: 'settings' }">-->
+<!--                            <i class="ion-gear-a" />-->
+<!--                            &nbsp; Settings-->
+<!--                        </router-link>-->
+<!--                    </li>-->
 
                     <li class="nav-item">
                         <router-link
