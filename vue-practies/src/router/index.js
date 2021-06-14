@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import GlobalFeed from '../views/GlobalFeed.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: Home,
+        name: 'globalFeed',
+        component: GlobalFeed,
     },
     {
         path: '/register',
