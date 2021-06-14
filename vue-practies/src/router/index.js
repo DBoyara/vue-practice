@@ -1,11 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import GlobalFeed from '../views/GlobalFeed.vue';
 
 const routes = [
     {
         path: '/',
         name: 'globalFeed',
-        component: GlobalFeed,
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
     },
     {
         path: '/register',
@@ -16,6 +15,46 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    },
+    {
+        path: '/feed',
+        name: 'yourFeed',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/tags/:slug',
+        name: 'tag',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/articles/new',
+        name: 'createArticle',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/articles/:slug',
+        name: 'article',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/articles/:slug/edit',
+        name: 'editArticle',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/profiles/:slug',
+        name: 'userProfile',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+    },
+    {
+        path: '/profiles/:slug/favorites',
+        name: 'userProfileFavorites',
+        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
     },
 ];
 

@@ -7,29 +7,29 @@
                     <router-link class="nav-link" :to="{ name: 'globalFeed' }">Home</router-link>
                 </li>
                 <template v-if="isLoggedIn">
-<!--                    <li class="nav-item">-->
-<!--                        <router-link class="nav-link" :to="{ name: 'createArticle' }">-->
-<!--                            <i class="ion-compose" />-->
-<!--                            &nbsp; New Article-->
-<!--                        </router-link>-->
-<!--                    </li>-->
-
-<!--                    <li class="nav-item">-->
-<!--                        <router-link class="nav-link" :to="{ name: 'settings' }">-->
-<!--                            <i class="ion-gear-a" />-->
-<!--                            &nbsp; Settings-->
-<!--                        </router-link>-->
-<!--                    </li>-->
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'createArticle' }">
+                            <i class="ion-compose" />
+                            &nbsp; New Article
+                        </router-link>
+                    </li>
 
                     <li class="nav-item">
-<!--                        <router-link-->
-<!--                            class="nav-link"-->
-<!--                            :to="{ name: 'userProfile', params: { slug: currentUser.username } }"-->
-<!--                        >-->
-<!--                            <img class="user-pic" :src="currentUser.image" />-->
-<!--                            &nbsp;-->
-<!--                            {{ currentUser.username }}-->
-<!--                        </router-link>-->
+                        <router-link class="nav-link" :to="{ name: 'settings' }">
+                            <i class="ion-gear-a" />
+                            &nbsp; Settings
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link
+                            class="nav-link"
+                            :to="{ name: 'userProfile', params: { slug: currentUser.username } }"
+                        >
+                            <img class="user-pic" :src="currentUser.image" />
+                            &nbsp;
+                            {{ currentUser.username }}
+                        </router-link>
                     </li>
                 </template>
                 <template v-if="isAnonymous">
