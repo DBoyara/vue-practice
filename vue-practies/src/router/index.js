@@ -19,12 +19,12 @@ const routes = [
     {
         path: '/feed',
         name: 'yourFeed',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/YourFeed.vue'),
     },
     {
         path: '/tags/:slug',
         name: 'tag',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/TagFeed.vue'),
     },
     {
         path: '/articles/new',
