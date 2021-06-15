@@ -49,7 +49,7 @@ const routes = [
     {
         path: '/profiles/:slug',
         name: 'userProfile',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/UserProfile.vue'),
     },
     {
         path: '/profiles/:slug/favorites',
