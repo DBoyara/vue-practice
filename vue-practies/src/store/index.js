@@ -6,6 +6,7 @@ import article from './modules/article';
 import createArticle from './modules/createArticle';
 import editArticle from './modules/editArticle';
 import settings from './modules/settings';
+import addToFavorites from './modules/addToFavorites';
 
 export default createStore({
     state: {},
@@ -19,5 +20,6 @@ export default createStore({
         createArticle,
         editArticle,
         settings,
+        addToFavorites,
     },
 });
