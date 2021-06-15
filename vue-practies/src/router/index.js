@@ -39,7 +39,7 @@ const routes = [
     {
         path: '/articles/:slug/edit',
         name: 'editArticle',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/EditArticle.vue'),
     },
     {
         path: '/settings',
