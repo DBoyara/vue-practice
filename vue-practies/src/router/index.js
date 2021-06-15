@@ -44,7 +44,7 @@ const routes = [
     {
         path: '/settings',
         name: 'settings',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/Settings.vue'),
     },
     {
         path: '/profiles/:slug',
