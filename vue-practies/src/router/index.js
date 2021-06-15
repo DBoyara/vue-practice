@@ -29,7 +29,7 @@ const routes = [
     {
         path: '/articles/new',
         name: 'createArticle',
-        component: () => import(/* webpackChunkName: "about" */ '../views/GlobalFeed.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/CreateArticle.vue'),
     },
     {
         path: '/articles/:slug',
